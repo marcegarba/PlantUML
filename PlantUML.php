@@ -163,7 +163,7 @@ function wfPlantUMLExtension($parser) {
  */
 function wrap_formula($PlantUML_Source) {
     $string  = "@startuml\n";
-    $string .= "$PlantUML_Source\n";
+    $string .= preg_replace("/^\r?\n/", "", $PlantUML_Source, 1) . "\n";
     $string .= "@enduml";
  
     return $string;
